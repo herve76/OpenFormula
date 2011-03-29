@@ -4,9 +4,9 @@ except for convert, euroconvert and subtotal
 """
 
 #Import from Open Formula
-from of_class import Number, CellReference, RangeReference, LogicalExpression
-from of_utils import is_num_range_list, is_str_or_number_list
-from of_syntax import of_parameter_list, of_range_address2
+from objects import Number, CellReference, RangeReference, LogicalExpression
+from utils import is_str_or_number_list
+from syntax import of_parameter_list, of_range_address2
 
 #
 #Private API
