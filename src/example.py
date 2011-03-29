@@ -4,7 +4,7 @@ from lpod.table import odf_create_table, odf_create_cell
 from random import randrange
 
 #import lpod_vle
-from syntax import of_formula, of_intro
+from syntax import of_formula
 from stats import of_average, of_min, of_max
 
 #We create a spreadsheet just for the example
@@ -27,19 +27,19 @@ table.set_value((1,0), "Maximum")
 table.set_value((2,0), "Minimum")
 
 #average
-formula=of_formula(of_intro(), of_average(u'Data.A1:E5'))
+formula=of_formula(of_average(u'Data.A1:E5'))
 cell = odf_create_cell()
 cell.set_formula(formula)
 table.set_cell((0,1), cell)
 
 #maximum
-formula=of_formula(of_intro(), of_max(u'Data.A1:E5'))
+formula=of_formula(of_max(u'Data.A1:E5'))
 cell = odf_create_cell()
 cell.set_formula(formula)
 table.set_cell((1,1), cell)
 
 #minimum
-formula=of_formula(of_intro(), of_min('Data.A1:E5'))
+formula=of_formula(of_min('Data.A1:E5'))
 cell = odf_create_cell()
 cell.set_formula(formula)
 table.set_cell((2,1), cell)

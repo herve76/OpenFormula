@@ -48,19 +48,15 @@ def __verify_cell(arg):
 #Public API
 #
 
-def of_formula(intro, expression):
+def of_formula(expression, forcerecalc=False):
     """
     Return the syntax for a formula
     An open formula must begin with "of:"
     """
-    return "of:"+intro+" "+expression
-
-def of_intro(forcerecalc=False):
-    """Return the syntax for an intro"""
-    if forcerecalc:
-        return "=="
-    else:
-        return "="
+    intro = "="
+    if forcerecalc is True:
+        intro = "=="
+    return "of:" + intro + " " + expression
 
 def of_number(num):
     """Verify that the argument is a  number and returns it in a string"""
