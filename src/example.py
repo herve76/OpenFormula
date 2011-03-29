@@ -5,7 +5,7 @@ from random import randrange
 
 #import lpod_vle
 from syntax import OF
-from stats import of_average, of_min, of_max
+from stats import AVERAGE, MIN, MAX
 
 #We create a spreadsheet just for the example
 doc = odf_new_document('spreadsheet')
@@ -20,28 +20,25 @@ for c in range(5):
         table.set_value((c, l), v)
 
 #Then, we write some statistics about the data in a new sheet
-table = odf_create_table('Stats', width=3, height=2)
+table = odf_create_table(u'Stats', width=3, height=2)
 body.append(table)
-table.set_value((0,0), "Average")
-table.set_value((1,0), "Maximum")
-table.set_value((2,0), "Minimum")
+table.set_value((0,0), u"Average")
+table.set_value((1,0), u"Maximum")
+table.set_value((2,0), u"Minimum")
 
 #average
-formula=OF(of_average(u'Data.A1:E5'))
-cell = odf_create_cell()
-cell.set_formula(formula)
+formula = OF(AVERAGE(u'Data.A1:E5'))
+cell = odf_create_cell(formula=formula)
 table.set_cell((0,1), cell)
 
 #maximum
-formula=OF(of_max(u'Data.A1:E5'))
-cell = odf_create_cell()
-cell.set_formula(formula)
+formula = OF(MAX(u'Data.A1:E5'))
+cell = odf_create_cell(formula=formula)
 table.set_cell((1,1), cell)
 
 #minimum
-formula=OF(of_min('Data.A1:E5'))
-cell = odf_create_cell()
-cell.set_formula(formula)
+formula = OF(MIN('Data.A1:E5'))
+cell = odf_create_cell(formula=formula)
 table.set_cell((2,1), cell)
 
 doc.save("out.ods")
