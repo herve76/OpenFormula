@@ -48,7 +48,7 @@ def __verify_cell(arg):
 #Public API
 #
 
-def of_formula(expression, forcerecalc=False):
+def OF(expression, forcerecalc=False):
     """
     Return the syntax for a formula
     An open formula must begin with "of:"

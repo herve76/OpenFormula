@@ -2,7 +2,7 @@ import unittest
 
 from decimal import Decimal
 from objects import Number, Cell, Range
-from syntax import of_formula, of_number, of_string
+from syntax import OF, of_number, of_string
 from syntax import of_parameter_list, of_reference, of_column, of_row
 from syntax import of_range_address, of_reference_list, of_array
 from syntax import of_function_name, of_source, of_matrix_row
@@ -14,15 +14,15 @@ class TestOpenFormulaSyntax(unittest.TestCase):
 #Syntax test
     def test_of_formula(self):
         expected = "of:= SUM([.A1:.A2])"
-        self.assertEqual(of_formula("SUM([.A1:.A2])", forcerecalc=False), expected)
+        self.assertEqual(OF("SUM([.A1:.A2])", forcerecalc=False), expected)
         expected = "of:== SUM([.A1:.A2])"
-        self.assertEqual(of_formula("SUM([.A1:.A2])", forcerecalc=True), expected)
+        self.assertEqual(OF("SUM([.A1:.A2])", forcerecalc=True), expected)
         
     def test_of_intro(self):
         expected = "of:= "
-        self.assertEqual(of_formula("", forcerecalc=False), expected)
+        self.assertEqual(OF("", forcerecalc=False), expected)
         expected = "of:== "
-        self.assertEqual(of_formula("", forcerecalc=True), expected)
+        self.assertEqual(OF("", forcerecalc=True), expected)
 
     def test_of_number(self):
         self.assertEqual(of_number(5).str, "5")
